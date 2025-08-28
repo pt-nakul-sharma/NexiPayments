@@ -1,16 +1,21 @@
 <?xml version='1.0' encoding='utf-8'?>
-<plugin id="cordova-plugin-nexipayments" version="1.0.0" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+<plugin id="cordova-plugin-nexipayments" version="1.0.0" xmlns="http://apache.org/cordova/ns/plugins/1.0">
   <name>NexiPayments</name>
+
+  <!-- JavaScript module mapping -->
   <js-module name="NexiPayments" src="www/NexiPayments.js">
     <clobbers target="cordova.plugins.NexiPayments" />
   </js-module>
 
+  <!-- iOS platform configuration -->
   <platform name="ios">
     <!-- Integrate the NexiPay SDK using CocoaPods. -->
     <podspec>
       <pods use-frameworks="true">
         <!-- Specify the NexiPay pod from its Git repository -->
-        <pod name="NexiPay" git="https://github.com/NexiPayments/sdk-ios" tag="1.4.0"/>
+        <!-- The version 1.4.8 is a recent tag found on the GitHub repo,
+        but you should verify the latest tag. -->
+        <pod name="NexiPay" git="https://github.com/NexiPayments/sdk-ios" tag="1.4.8"/>
       </pods>
     </podspec>
 
