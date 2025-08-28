@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-plugin-nexipayments" version="1.0.0" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+  <name>NexiPayments</name>
+  <js-module name="NexiPayments" src="www/NexiPayments.js">
+    <clobbers target="cordova.plugins.NexiPayments" />
+  </js-module>
+
+  <platform name="ios">
+    <!-- Integrate the NexiPay SDK using CocoaPods. -->
+    <podspec>
+      <pods use-frameworks="true">
+        <!-- Specify the NexiPay pod from its Git repository -->
+        <pod name="NexiPay" git="https://github.com/NexiPayments/sdk-ios" tag="1.4.0"/>
+      </pods>
+    </podspec>
+
+    <!-- Define the native Objective-C bridge class in config.xml -->
+    <config-file parent="/*" target="config.xml">
+      <feature name="NexiPayments">
+        <param name="ios-package" value="NexiPayments" />
+      </feature>
+    </config-file>
+
+    <!-- Include the Objective-C header and source files -->
+    <header-file src="src/ios/NexiPayments.h" />
+    <source-file src="src/ios/NexiPayments.m" />
+  </platform>
+</plugin>
